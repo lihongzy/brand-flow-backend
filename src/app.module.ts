@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { BullModule } from '@nestjs/bullmq';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ImageGenerationModule } from './modules/image-generation/image-generation.module';
 
 @Module({
   imports: [
@@ -32,8 +33,10 @@ import { AppService } from './app.service';
       }),
       inject: [ConfigService],
     }),
+
+    ImageGenerationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
